@@ -1,0 +1,20 @@
+
+
+  <div class='list-group-item feed-entry padding-wrapper' ng-repeat='entry in feed.entries'>
+    <small class='glyphicon glyphicon-play expand' ng-show='entry.summary' ng-click='expand($event, entry)'></small>
+    <small class='glyphicon glyphicon-eye-close read' ng-click='mark_as_read(entry)'></small>
+    <div class='entry-snapshot'>
+      <a class='entry-link ng-class: {visited: entry.visited};' ng-href='{{entry.url}}' ng-click='visit(entry)' target='_blank'>{{entry.title}}</a>
+      <p class='entry-meta'>
+        <small>{{update_timestamp(entry.published)}} 
+          <span ng-show="show_author(entry)"> | </span> {{entry.author}}
+          <span class='feed-title'> | via <a ng-href='{{entry.feed.url}}'> {{entry.feed.title}} </a> </span>
+        </small>
+      </p>
+      <p class='entry-meta'>
+        <small class='separator' ng-show='entry.categories.length > 0'> | </small>
+        <small ng-repeat='category in entry.categories'> #{{category}} </small>
+      </p>
+    </div>
+    <p class='entry-summary clearfix' ng-show='entry.expand' ng-bind-html="entry.summary"></p>
+  </div>

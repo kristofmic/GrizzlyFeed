@@ -1,0 +1,19 @@
+
+  <li class='list-group-item feed-entry padding-wrapper' ng-repeat='entry in feed_entries.col<%= column %>'>
+    <div class='entry-snapshot'>
+      <a class='entry-link' ng-href='{{entry.url}}' target='_blank'>{{entry.title}}</a>
+      <p class='entry-meta'>
+        <small>{{update_timestamp(entry.published)}} 
+          <span ng-show="show_author(entry)"> | </span> {{entry.author}}
+           <span> | </span> via <a ng-href='{{entry.feed.url}}'> {{entry.feed.title}} </a>
+        </small>
+      </p>
+      <p class='entry-meta'>
+       
+      </p>
+      <p class='entry-meta'>
+        <small ng-repeat='category in entry.categories'> #{{category}} </small>
+      </p>
+    </div>
+    <p class='entry-summary clearfix' ng-bind-html="entry.summary"></p>
+  </li>

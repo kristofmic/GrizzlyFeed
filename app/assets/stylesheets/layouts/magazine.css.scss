@@ -1,0 +1,44 @@
+#feeds.layout-magazine {
+	.feed-column {
+		.feed {
+			.panel {
+				border: none;
+				background-color: transparent;
+
+				.panel-heading { display: none; }
+
+				.expand { display: none; }
+				.read { top: 16px; }
+
+				.feed-entry {
+					margin-bottom: 10px;
+					border-top-style: solid;
+					border-width: 1px;
+
+					&:last-child { margin-bottom: 0px; }
+
+					.entry-snapshot {
+						.entry-link { 
+							font-size: 22px; 
+						}
+						.entry-meta {
+							.feed-title{
+								display: inline;
+							}
+						}
+					}
+
+					.entry-summary {
+						display: block !important;
+
+						img {
+							margin-left: 0;
+							max-width: 100%;
+							box-shadow: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+<div>
+  <div class='row'>
+    <div class='col-sm-3 heading'>
+      <h2 class='column-heading' ng-hide='searchResults'><small>Find & Add Feeds</small></h2> 
+      <h2 class='column-heading' ng-show='searchResults'><small>Search Results</small></h2> 
+    </div>
+    <div class='col-md-5 col-md-offset-4 col-sm-7 col-sm-offset-2'>
+      <div class='new-feed-forms-container'>
+        <div class='new-feed-forms'>
+          <%= render partial: 'feed_search' %>
+          <span class='glyphicon glyphicon-link new-feed-alt tip' data-toggle='tooltip' data-placement='bottom' data-title='Add Feed URL' ng-click='toggle_add()'></span>
+          <%= render partial: 'feed_add' %>
+          <span class='glyphicon glyphicon-search new-feed-alt tip' data-toggle='tooltip' data-placement='bottom' data-title='Search Feeds' ng-click='toggle_search()' ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class='browse-feeds clearfix col-sm-12'>
+    <%= render partial: 'feed_new' %>
+  </ul>
+</div>

@@ -1,0 +1,51 @@
+<div id='home'>
+  <% if !signed_in? %>
+    <div class='row'>
+      <div class="jumbotron col-sm-12 clearfix">
+        <div class='col-md-8 col-sm-12'>
+          <h1>Grizzly Feed</h1>
+          <p>Your single source for your news from around the web</p>
+          <ul class='clearfix'>
+            <li>
+                  <p>
+                    <a class='btn btn-success btn-lg' href="<%= users_new_path %>">
+                    <span class='glyphicon glyphicon-log-in'></span>
+                    Sign up
+                    </a>
+                  </p>
+            </li>
+            <li>
+                  <p>
+                    <span class='glyphicon glyphicon-plus'></span>
+                    Add feeds
+                  </p>
+            </li>
+            <li>
+                  <p>
+                    <span class='glyphicon glyphicon-book'></span>
+                    Read
+                  </p>
+            </li>
+          </ul>
+        </div>
+        <div class='col-md-4 col-sm-0'>
+          <img alt='grizzly reading newspaper' src='/assets/grizzly_read.png' >
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <div id='entries_header' class='col-sm-12'>
+      <h2>Check out some of the stories you can get in your feed</h2>
+    </div>
+  </div>
+
+  <div id='entries' class='clearfix row'>    
+    <% 3.times do |col| %>
+      <ul class='col-sm-4 feed-column' ui-multi-sortable ng-model='feed_entries' model-subset='col<%= col+1 %>'>
+        <%= render partial: 'generals/feed_entry', locals: {column: (col+1)} %>
+      </ul>
+    <% end %>
+  </div>
+</div>

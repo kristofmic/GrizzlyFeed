@@ -1,0 +1,59 @@
+<!-- Modal -->
+<div class="modal fade" id="edit-feed-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{editFeed.title}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="information-section clearfix">
+          <div class='info-heading'>
+            <h5><strong>Entries to Display</strong></h5>
+          </div>
+          <div class='info-content'>
+            <div class="form-group">
+              <label for="display-entries" class='sr-only'>Entries to display</label>
+              <select id="display-entries" class="form-control" ng-model='entries'>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+                <option value='8'>8</option>
+                <option value='9'>9</option>
+                <option value='10'>10</option>
+                <option value='15'>15</option>
+                <option value='20'>20</option>
+                <option value='30'>30</option>
+                <option value='50'>50</option>
+                <option value='100'>100</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="information-section clearfix">
+          <div class='info-heading'>
+            <h5><strong>Remove Feed</strong></h5>
+          </div>
+          <div class='info-content'>
+            <div class='checkbox'>
+              <label>
+                <input type='checkbox' ng-model='removeFeed'> Remove feed
+              </label>
+              <p class='text-danger' ng-show='removeFeed' ng-animate="'slideDown'">
+                <small>This feed will be removed from you feeds page. If you change your mind, you can add it back later.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id='save-feed-changes' data-dismiss="modal" ng-click='edit_feed_save()'>Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,69 @@
+<div>
+
+  <div class='row user-heading'>
+    <div class='col-xs-6'>
+      <h2 class='column-heading'><small> <%= @user.email %></small></h2>
+    </div>
+    <div class='col-xs-6'>
+      <small class='pull-right update'>Member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></small>
+    </div>
+  </div>
+
+  <div class='user-preferences'>
+    <div class='row'>
+      <div class='col-sm-12 clearfix preference'>
+        <div class='col-md-2 col-sm-0'>
+          <h3 class='column-heading'><small>Password</small></h3>
+        </div>
+        <div class='col-sm-2'>
+          <a class='btn btn-link' ng-click='password = !password'>Change password</a>
+        </div>
+        <div class='col-md-8 col-sm-10'>
+          <form class='form-inline' role='form' ng-show='password' ng-submit='change_pw()'>
+            <div class='form-group'>
+              <label class='sr-only' for='current_password'>Current Password</label>
+              <input type='password' class='form-control' id='current_password' placeholder='Current password' ng-model='current_password'>
+            </div>
+            <div class='form-group'>
+              <label class='sr-only' for='new_password'>New Password</label>
+              <input type='password' class='form-control' id='new_password' placeholder='New password' ng-model='new_password'>
+            </div>
+            <div class='form-group'>
+              <label class='sr-only' for='password_confirmation'>Password confirmation</label>
+              <input type='password' class='form-control' id='password_confirmation' placeholder='Password confirmation' ng-model='password_confirmation'>
+            </div>
+            <button type="submit" class="btn btn-default">Change</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-sm-12 clearfix preference'>
+        <div class='col-md-2 col-sm-0'>
+          <h3 class='column-heading'><small>Themes</small></h3>
+        </div>
+        <div class='themes col-md-8 col-sm-12'>
+          <div class='theme ng-class: {active: theme.active};' ng-repeat='theme in themes' ng-click='update_theme(theme)'>
+            <div class='panel panel-default' >
+              <div class='panel-heading'>
+                <h4 class='panel-title'>{{theme.name}}</h4>
+                <div class='icons'>
+                  <span class='glyphicon glyphicon-ok-circle icon pull-right' ng-show='theme.active'></span>
+                </div>
+              </div>
+              <div class='panel-body'>
+                <div class='theme-{{theme.style}} color-swatch swatch-1'></div>
+                <div class='theme-{{theme.style}} color-swatch swatch-2'></div>
+                <div class='theme-{{theme.style}} color-swatch swatch-3'></div>
+                <div class='theme-{{theme.style}} color-swatch swatch-4'></div>
+                <div class='theme-{{theme.style}} color-swatch swatch-5'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

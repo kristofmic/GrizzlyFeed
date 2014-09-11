@@ -1,0 +1,24 @@
+
+<li class='feed' ng-repeat='feed in feeds.col<%= column %>'>
+  <div class='panel panel-default' >
+    <div class='panel-heading'>
+      <h4 class='panel-title'><a ng-href='{{feed.url}}' target='_blank'>{{feed.title}}</a></h4>
+      <div class='icons'>
+        <span class='icon handle pull-right'>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+          <span class='handlebar'></span>
+        </span>
+        <span class='glyphicon glyphicon-cog icon pull-right' ng-click='edit_feed(feed)'></span>
+      </div>
+    </div>
+    <ul class="list-group" >
+      <%= render partial: 'feeds/feed_entry' %>
+    </ul>
+  </div>    
+</li>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='GrizzlyFeedApp'>
+  <head>
+    <title>Grizzly Feed</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= yield :header_js %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  </head>
+  <body class='theme-<%= theme.stylesheet %>'>
+    <%= render 'layouts/header/nav' %>
+    <div class='container'>
+      
+      <% flash.each do |key, value| %>
+        <div class='row flash'>
+          <%= content_tag :div, class: "alert alert-#{key} alert-dismissable col-sm-6 col-xs-8 col-sm-offset-3"  do %>
+            <%= value %>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

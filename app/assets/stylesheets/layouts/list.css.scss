@@ -1,0 +1,34 @@
+#feeds.layout-list {
+
+	.feed-column {
+		float: none;
+		width: 100%;
+
+		.feed {
+			.panel {
+				.panel-heading { width: 97.3%; }
+				.feed-entry {
+					.entry-snapshot {
+						a { display: block; }
+						.entry-meta { 
+							display: inline; 
+
+							.separator { display: inline; }
+						}
+					}
+
+					.entry-summary {
+						padding: 0 10px;
+
+						img { 
+							max-width: 15%;
+							margin-right: 15px;
+							margin-left: 0;
+							float: left;
+						}
+					}
+				}
+			}
+		}
+	}
+} 

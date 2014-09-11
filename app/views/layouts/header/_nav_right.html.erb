@@ -1,0 +1,41 @@
+<% if signed_in? %>
+
+  <ul class='nav navbar-nav'>
+    
+    <li>
+    <%= link_to hash_route(feeds_path), class: 'btn btn-link tip', id: 'feed_index', data: {toggle: 'tooltip', placement: 'bottom', title: 'Feeds'}, 'onclick' => "$('.navbar-toggle').trigger('click');" do %>
+      <span class='glyphicon glyphicon-th'></span>    
+      <label>Feeds</label>
+    <% end %>
+    </li>
+
+    <li id='add_feed_popover'>
+    <%= link_to hash_route(new_feed_path), class: 'btn btn-link tip', id: 'add_feed', data: {toggle: 'tooltip', placement: 'bottom', title: 'Add/Remove Feeds'}, 'onclick' => "$('.navbar-toggle').trigger('click');" do %>
+      <span class='glyphicon glyphicon-plus'></span>  
+      <label>Add/Remove Feeds</label>  
+    <% end %>
+    </li>
+
+    <li>
+    <%= link_to hash_route(profile_path), class: 'btn btn-link tip', id: 'profile', data: {toggle: 'tooltip', placement: 'bottom', title: 'Profile and User Settings'}, 'onclick' => "$('.navbar-toggle').trigger('click');" do %>
+      <span class='glyphicon glyphicon-user'></span>  
+      <label>Profile and Settings</label>  
+    <% end %>
+    </li>
+
+    <li>
+    <%= link_to logout_path, method: :delete, id: 'logout', class: 'btn btn-link tip', data: {toggle: 'tooltip', placement: 'bottom', title: 'Logout'}, 'onclick' => "$('.navbar-toggle').trigger('click');" do %>
+      <span class='glyphicon glyphicon-log-out'></span>
+      <label>Logout</label>
+    <% end %>
+    </li>
+
+    <li><p class="navbar-text"><%= current_user.email %></p></li>
+  </ul>
+
+<% else %>
+
+    <%= link_to 'Log in', login_path, class: 'btn btn-link navbar-btn' %>
+    <%= link_to 'Sign up', users_new_path, class: 'btn btn-success navbar-btn' %>
+    
+<% end %>

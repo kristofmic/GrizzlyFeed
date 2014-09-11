@@ -1,0 +1,24 @@
+<div>
+  <div class='row'>
+    <div class='col-sm-2 layouts-container'>
+      <div id='layouts' class="btn-group" data-toggle="buttons">
+        <span ng-repeat='layout in layouts' class="glyphicon glyphicon-{{layout.icon}} ng-class: {active: layout.active}" ng-click='update_layout(layout)'></span>
+      </div>
+    </div>
+    <div class='col-sm-6 col-sm-offset-4 update-container'>
+      <span id='refresh' class='glyphicon glyphicon-refresh tip pull-right' ng-click='refresh($event)' data-toggle='tooltip' data-placement='top' data-title='Update Feeds'></span>
+      <small class='pull-right update' ng-show='updating'>Updating...</small>
+      <small class='pull-right update' ng-cloak ng-hide='updating'>Last updated {{last_updated}}</small>
+    </div>
+  </div>
+
+  <div id='feeds' class='clearfix layout-{{active_layout()}}'>
+    <% 3.times do |col| %>
+      <ul class='col-sm-4 feed-column' ng-cloak ui-multi-sortable ng-model='feeds' model-subset='col<%= col+1 %>'>
+        <%= render partial: 'feeds/feed', locals: {column: (col+1)} %>
+      </ul>
+    <% end %>
+  </div>
+
+  <%= render partial: 'feeds/edit_feed_modal' %>
+</div>

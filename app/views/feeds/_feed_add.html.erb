@@ -1,0 +1,12 @@
+
+<form class='feed-add' ng-submit='add_feed()'>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder='Add a feed URL' ng-model='feed_url'>
+    <button type="button" class="close clear-search" aria-hidden="true" ng-click='feed_url = ""' ng-hide='feed_url === "" || feed_url === undefined'>&times;</button>
+    <span class="input-group-btn">
+      <button class="btn btn-success" type="submit">
+        <span class='glyphicon glyphicon-link'></span>
+      </button>
+    </span>
+  </div><!-- /input-group -->
+</form>

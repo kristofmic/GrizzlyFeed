@@ -1,0 +1,17 @@
+<li class='feed new-feed col-sm-3' ng-repeat='feed in feeds'>
+  <div class='panel panel-default' >
+    <div class='panel-heading'>
+      <h5 class='panel-title'><a ng-href='{{feed.url}}' target='_blank'>{{feed.title}}</a></h5>
+      <div class='icons'>
+        <span class='glyphicon glyphicon-ok-circle icon pull-right' ng-show='feed.added' ng-click='remove_user_feed(feed)'></span>
+        <span class='glyphicon glyphicon-plus-sign icon pull-right' ng-hide='feed.added' ng-click='add_user_feed(feed)'></span>
+      </div>
+    </div>
+    <div class='panel-body'>
+      <p><small>{{feed.subscribers}} subscriber<span ng-hide='feed.subscribers === 1'>s</span></small></p>
+      <p><small class='btn btn-link' ng-click='search("#" + category)' ng-repeat='category in feed.categories'> #{{category}}</small></p>
+      <p><small>Last updated {{update_timestamp(feed.last_modified)}}</small></p> 
+      <p><small><a class='btn btn-link' ng-href='{{feed.feed_url}}' target='_blank'>{{feed.feed_url}}</a></small></p>
+    </div>
+  </div>    
+</li>
